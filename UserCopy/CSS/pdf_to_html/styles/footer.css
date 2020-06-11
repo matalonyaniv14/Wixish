@@ -1,0 +1,70 @@
+.footer-wrap {
+	 margin-bottom: 40px;
+	 color: black;
+	 height: 500px;
+	 }
+	.footer { display: flex; flex-direction: column; justify-content: space-between; }
+
+
+.footer > .grey-footer-box {
+	 padding: 10px;
+	 text-align: center;
+	 display: block;
+	 height: auto;
+	 background: rgb(153, 153, 153);
+	 border-radius: 5px;
+	 margin: 10px;
+	 box-shadow: rgb(153, 225, 231) 3px 4px 1px 1px;
+	 }
+	.footer > .grey-footer-box p {
+	 padding-top: 2px;
+	 font-size: 26px;
+	 }
+	.footer > .merci-logo-wrap{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} 
+
+.footer > .merci-logo-wrap > .merci-content {
+	 width: 50%;
+	 padding-top: var(--summary-title);
+	 position: relative;
+	 color: black;
+	 background: powderblue;
+	 border-radius: 5px;
+	 margin: 10px;
+	 box-shadow: grey 1px 1px 1px 1px;
+	 }
+	.footer > .merci-logo-wrap > .merci-content p {
+	 font-size: var(--title);
+	 position: absolute;
+	 bottom: var(--table-row);
+	 padding-left: 30px;
+	 padding-bottom: 10px;
+	 }
+	.footer > .merci-logo-wrap > .logo-wrap{
+  width: 50%;
+  text-align: right;
+  position: relative;
+}
+
+.footer > .merci-logo-wrap > .logo-wrap > img {
+	 position: absolute;
+	 bottom: 1px;
+	 right: 0px;
+	 height: 100%;
+	 width: auto;
+	 }
+	.border-bottom-footer { height: 11px; width: 100%; display: flex; }
+
+.border-bottom-footer > .black-border {
+	 height: 100%;
+	 width: 33%;
+	 background-color: rgb(20, 55, 232);
+	 }
+	.border-bottom-footer > .blue-border { height: 100%; width: 67%; background-color: black; }
+
+
+

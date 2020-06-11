@@ -1,0 +1,20 @@
+@import "./header.css";
+@import "./main-contact.css";
+@import "./table-title.css";
+@import "./table.css";
+@import "./footer.css";
+@import "./constants.css";
+@import "./a_test.css";
+
+.container{ padding: 55px 100px 0px 100px; }
+
+
+/*fonts*/
+
+p { font-family: 'Economica', sans-serif; margin:0px;}
+
+@font-face {
+  font-family: 'Economica';
+  src: url('../assets/fonts/Economica-Regular.ttf');
+  src: url('../assets/fonts/Economica-Regular.ttf') format('truetype');
+}

@@ -1,0 +1,24 @@
+.table-title {
+	 height: 66px;
+	 }
+	.table-title-content {
+	 content: open-quote;
+	 display: flex;
+	 }
+	.title-left p {
+	 border: 10px solid rgb(230, 5, 5);
+	 background: bisque;
+	 font-size: 30px;
+	 }
+	.title-right {
+	 display: flex;
+	 padding-top: 13px;
+	 }
+	.title-right p{
+  font-size: var(--small-title);
+}
+
+.title-right p:nth-child(2) {
+	 font-size: 25px;
+	 }
+	

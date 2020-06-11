@@ -1,0 +1,22 @@
+.contact-info-wrap { height: 200px; width: 100%; display: flex; margin-top: var(--small-title); margin-bottom: 55px; }
+
+.contact-info-left {
+	 width: 53%;
+	 }
+	.contact-info-right { width: 51%; }
+
+
+.contact-info-content {
+	 display: flex;
+	 flex-direction: column;
+	 }
+	.content-header {
+	 font-size: 34px;
+	 font-family: cursive;
+	 }
+	.content-sub-header {
+	 font-size: inherit;
+	 padding-left: 50px;
+	 padding-top: 11px;
+	 }
+	

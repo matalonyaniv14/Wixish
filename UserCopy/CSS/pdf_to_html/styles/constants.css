@@ -1,0 +1,17 @@
+:root {
+	 --default-blue: #fdfdfddb;
+	 --default-black: #505050;
+	 --default-red: #E32328;
+	 --default-grey: #999999;
+	 --footer-border-black: #4E4E4E;
+	 --footer-border-blue: #5797CC;
+	 --sub-header: 14px;
+	 --header: 20px;
+	 --small-title: 22px;
+	 --title: 24px;
+	 --large-title: 28px;
+	 --table-row: 16px;
+	 --summary-title: 30px;
+	 --this-is-new: yellowgreen;
+	 }
+	
