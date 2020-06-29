@@ -22,6 +22,7 @@ class Resource {
     this.toRegex = this.toRegex.bind(this);
     this.toPrettyCSS = this.toPrettyCSS.bind(this);
     this._takeCSS = this._takeCSS.bind(this);
+    this.update = this.update.bind(this);
   }
 
   static build( args ) {
@@ -32,6 +33,8 @@ class Resource {
   static _build({ selector, cssText, href, id }) {
     if (selector) {
       return new Resource(selector,cssText,href,id);
+    } else {
+      console.log( "RESOURCE DOES NOT HAVE SELECTOR", "\n",selector,"\n",cssText,"\n",href,"\n",id );
     }
   }
 
@@ -41,6 +44,28 @@ class Resource {
 
   set id(ID) { 
     this._id = ID; 
+  }
+
+  update( resource = {} ) {
+    let _this = this;
+    try {
+      if ( resource == {} ) {
+          console.log( "NEW RESOURCE IS EMPTY....", resource );
+          return false;
+      }
+      Object.keys( resource ).forEach( function( key ) {
+            if ( key == 'id' ) {
+                _this.id = _this._uniqID();
+            } else {
+                _this[key] = resource[key];
+            }
+      })
+    } catch( e ) {
+      console.log( e, "THERE WAS AN ERROR UPDATING THE RESOURCE....");
+      console.log( this, resource );
+      return false;
+    }
+    return true
   }
 
 
@@ -95,6 +120,7 @@ class Resource {
   }
 
   _takeCSS() {
+    console.log('THIS IS INSIDE TAKECSS....', JSON.parse(JSON.stringify( this )));
     let m = this.cssText.match( CSS_REG );
     if ( m ) {
       return m[0];

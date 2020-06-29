@@ -77,7 +77,7 @@ class NodeGraph {
       try {
         // // console.log( 'READING FILE => ' + data  );
           contents = readFileSync( data, 'utf-8' ).split( "\n" );
-          contents.map( function( c ) { 
+          contents.forEach( function( c ) { 
               let m =  c.match( REQ_REG ); 
               if ( m ) { 
                   res.push( _this.resolveFile( m, data ) ); 

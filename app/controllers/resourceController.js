@@ -16,11 +16,20 @@ class ResourceController {
       resources     = this.resourceRepo.resources;
       _newResources = ResourceRepo.buildResources( _newResources.data );
       res           = this.strategy.doAnalyze( resources, _newResources );
-      
-      this.resourceRepo.updateResources( res );
-      this.resourceRepo.resetResources( _newResources );    
       console.log( res );
+      this.resourceRepo.updateResources( res );
+      // this.resourceRepo.resetResources( _newResources );    
+    
       console.log( res.length );
+  }
+
+  update_src_resources( resources ) {
+    let newResources;
+
+    newResources = ResourceRepo.buildResources( resources.data );
+    this.resourceRepo.forEach( function( re ) {
+        
+    })
   }
 
 }

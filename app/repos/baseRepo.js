@@ -39,6 +39,8 @@ class BaseRepo {
                 _resources.push( r );
                 _this.resetCount();
             }
+        } else {
+            console.log( "could not build resource", resource );
         }
     }
 }

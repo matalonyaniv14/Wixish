@@ -1,24 +1,46 @@
 .table-title {
-	 height: 66px;
-	 }
-	.table-title-content {
+
+	 height: 100%;
+	 background: aquamarine;
+	 
+}
+
+.table-title-content {
+
 	 content: open-quote;
 	 display: flex;
-	 }
-	.title-left p {
-	 border: 10px solid rgb(230, 5, 5);
-	 background: bisque;
+	 transition: auto 0s ease 0s;
+	 transform: none;
+	 
+}.title-left p {
+
 	 font-size: 30px;
-	 }
-	.title-right {
+	 border: 5px solid rgb(80, 80, 80);
+	 padding: 54px;
+	 height: auto;
+	 background: rgb(227, 35, 40);
+	 
+}.title-right {
+
 	 display: flex;
-	 padding-top: 13px;
-	 }
-	.title-right p{
-  font-size: var(--small-title);
+	 border: 5px solid rgb(80, 80, 80);
+	 padding: 40px;
+	 color: rgb(87, 151, 204);
+	 background: rgb(227, 35, 40);
+	 
+}.title-right p {
+
+	 font-size: var(--small-title);
+	 color: aliceblue;
+	 
 }
 
 .title-right p:nth-child(2) {
-	 font-size: 25px;
-	 }
-	
+
+	 font-size: 31px;
+	 border: 2px solid black;
+	 padding: 10px 28px 13px;
+	 box-shadow: rgb(200, 208, 204) 3px 6px 1px 1px;
+	 
+}
+

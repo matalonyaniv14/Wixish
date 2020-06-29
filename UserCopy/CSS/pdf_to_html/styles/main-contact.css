@@ -1,22 +1,49 @@
-.contact-info-wrap { height: 200px; width: 100%; display: flex; margin-top: var(--small-title); margin-bottom: 55px; }
+.contact-info-wrap {
 
-.contact-info-left {
-	 width: 53%;
-	 }
-	.contact-info-right { width: 51%; }
+	 width: 100%;
+	 display: flex;
+	 margin-top: var(--small-title);
+	 margin-bottom: 55px;
+	 border: black;
+	 
+}.contact-info-left {
 
+	 padding: 100px;
+	 background: rgb(74, 74, 97);
+	 color: aliceblue;
+	 
+}
+
+.contact-info-right {
+
+	 border: 5px solid rgb(80, 80, 80);
+	 box-shadow: grey 1px 1px 1px 1px;
+	 padding: 40px;
+	 border-block-end: inherit;
+	 background: rgb(87, 151, 204);
+	 
+}
 
 .contact-info-content {
+
 	 display: flex;
 	 flex-direction: column;
-	 }
-	.content-header {
+	 
+}.content-header {
+
 	 font-size: 34px;
 	 font-family: cursive;
-	 }
-	.content-sub-header {
+	 gap: initial;
+	 speak: spell-out;
+	 border: aliceblue;
+	 background: rgb(20, 55, 232);
+	 
+}.content-sub-header {
+
 	 font-size: inherit;
 	 padding-left: 50px;
 	 padding-top: 11px;
-	 }
-	
+	 color: blue;
+	 
+}
+

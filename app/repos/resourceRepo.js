@@ -1,4 +1,4 @@
-const { copy, readFileSync, writeFile } = require('fs-extra');
+const { copy, readFileSync, writeFileSync } = require('fs-extra');
 
 const { BaseRepo } = require('../repos/BaseRepo.js');
 const { Resource } = require('../models/resource.js');
@@ -20,10 +20,10 @@ class ResourceRepo extends BaseRepo {
   updateResources( newResources ) {
     let _this = this;
     newResources.forEach( function( { o, n } ) {
-        _this.updateResource( o, n );
+        if ( _this.updateResource( o, n ) ) {
+            _this.resetResources( o, n );
+        }
     })
-
-    // this.resetResources( newResources );
   }
 
 
@@ -32,49 +32,58 @@ class ResourceRepo extends BaseRepo {
       let cssFile = this.readResource( href );
 
       if ( cssFile ) {
-         console.log("Resource Found.... =>  " + ( resource.href ))
+          console.log("Resource Found.... =>  " + ( resource.href ));
+          console.log("Resource Regex.... =>  " + ( resource.toRegex() ));
+          console.log('WAS REGEX FOUND IN FILE  ==> '  + resource.toRegex().test( cssFile ) );
+          if (  resource.toRegex().test( cssFile ) ) {
+            cssFile = cssFile.replace( resource.toRegex(), newResource.toPrettyCSS );
+            // confirm cssFile not empty;
+            this._writeFile( href, cssFile );
 
-          cssFile = cssFile.replace( resource.toRegex(), newResource.toPrettyCSS );
-          // confirm cssFile not empty;
-          
-          this._writeFile( href, cssFile );
-
-          return true;
+            return true;
+          }
+      } else {
+        console.log('RESOURCE CSS FILE NOT FOUND FOR => ', JSON.stringify( resource ) );
       }
 
       return false;
   }
 
 
-  resetResources( newResources ) {
-    let _this     = this;
-    let _resources = newResources.map( function( resource ) {
-          let old       = resource.findSelf( _this.resources );
-          resource.href = old.href;
-          return resource;
-    })
 
-   this.resources = _resources;
+  resetResources( o, n ) {   
+      let resource = n.findSelf( this.resources );
+      resource.update( { cssText: n.cssText } );
+  }
+
+  resetResourceID( resource, newResource ) {
+      resource.update( { id: newResource.id } );
   }
 
 
   readResource( href )  {     
     try {
-
+        console.log( 'INSIDE READ RESOURCE..... ==> ' + href );
         return readFileSync( href, 'utf-8' );
 
      } catch( e ) {
-          // console.log( 'THERE WAS AN ERROR DECODING FILE URI....', e );
+          console.log( 'THERE WAS AN ERROR READING FILE URI....', e );
+          return false;
      }
 
-    return false;
+    
   }
 
 
   _writeFile( path, css ) {
-      writeFile( path, css, ( e ) =>
-          console.log( "File written.. => errors if any", e ) 
-      ); 
+      try {
+
+          writeFileSync( path, css ); 
+
+      } catch( e ) {
+          console.log( "THERE WAS AN ERROR WRITING TO THE FILE ==> " + e );
+      }
+      
   }
 
 
@@ -82,11 +91,12 @@ class ResourceRepo extends BaseRepo {
       try {
 
           href = href.replace( FILE_REG, '/' );
+          console.log( 'INSIDE DECODE RESOURCE..... ==> ' + href );
           return decodeURI( href );
 
        } catch( e ) {
-            // console.log( 'THERE WAS AN ERROR DECODING FILE URI....', e );
-          return false;
+            console.log( 'THERE WAS AN ERROR DECODING FILE URI....', e, href );
+            return false;
        }
 
   }

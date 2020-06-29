@@ -17,6 +17,10 @@ class CSSStrategy extends BaseStrategy {
             if ( n.hasChanged( o ) ) {
                 changedResources.push( { o: o, n: n } );
             }
+        } else {
+
+          console.log( "couldnt find self in resources....", o );
+          
         }
     }
       

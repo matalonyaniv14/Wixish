@@ -1,9 +1,10 @@
 const COMMENT_BOUNDARY = String.raw`\s*(\s*\/\*[\s\w]*\*\/\s*)*\s*`;
-const SPECIAL_CHARS_ANCHOR = /[\.\#\(\)\s+]/gi;
+const SPECIAL_CHARS_ANCHOR = /[\.\#\(\)\s+:]/gi;
 const CSS_TEXT_ANCHOR =  /[{}:;]/gi;
 
 const makeLiteral = ( match ) => {
-  return `\\${ match }`;
+  // return `\\${ match }`;
+  return "\\s*" + `\\${ match }` + "\\s*"
 }
 
 const addCommentBoundary = ( match ) => {
@@ -15,6 +16,16 @@ const takeCSSText = ( css ) => {
   if ( m ) {
     return m[0];
   }
+}
+
+
+const buildSelector = ( css ) => {
+  let selector, formattedSelector;
+
+  selector = css.replace( takeCSSText( css ), '' );
+  formattedSelector = selector.split('').join( String.raw`\s*` );
+  
+  return css.replace( selector, formattedSelector ); 
 }
 
 
@@ -55,6 +66,7 @@ const build = ( css ) => {
 
 const buildRegex = ( css ) => {
   css = makeSpecialCharsLiteral( css );
+  // css = buildSelector( css );
   css = buildCSSText( css );
   css = build( css );
 

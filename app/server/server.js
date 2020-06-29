@@ -35,9 +35,14 @@ class Server{
   
 
   static analyze(body, res)  {
-
-      // ({ analyze } = this.getController());
       Server.resourceController.analyze(body);
+      res.writeHead(200, {'Content-Type': 'json'});
+      res.write(JSON.stringify({ok: true}));
+      res.end();
+  }
+
+  static update_src_resources( body, res ) {
+      Server.resourceController.update_src_resources( body );
       res.writeHead(200, {'Content-Type': 'json'});
       res.write(JSON.stringify({ok: true}));
       res.end();
@@ -66,6 +71,12 @@ const PATHS = {
       body = '';
     });
   }
+  // '/update_src_resources': function( req, res ) {
+  //     RequestHelper.getData(req, function(data) {
+  //         Server.update_src_resources( JSON.parse( data ), res );
+  //         body = '';
+  //     }
+  // }
 }
 
 
