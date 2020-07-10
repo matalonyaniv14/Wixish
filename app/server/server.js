@@ -18,7 +18,7 @@ class Server{
 
  static _createServer()  {
     http.createServer(this.serve).listen(port, hostname, function()  {
-      // console.log(`Server running at http://${hostname}:${port}/`);
+      console.log(`Server running at http://${hostname}:${port}/`);
     });
   }
   static serve(req, res)  { 
@@ -36,16 +36,18 @@ class Server{
 
   static analyze(body, res)  {
       Server.resourceController.analyze(body);
+      let resources = Server.resourceController.resourceRepo.resources;
       res.writeHead(200, {'Content-Type': 'json'});
-      res.write(JSON.stringify({ok: true}));
+      res.write( JSON.stringify( resources ) );
       res.end();
   }
 
-  static update_src_resources( body, res ) {
-      Server.resourceController.update_src_resources( body );
-      res.writeHead(200, {'Content-Type': 'json'});
-      res.write(JSON.stringify({ok: true}));
-      res.end();
+  static buildResources(res) {
+    let resources = Server.resourceController.resourceRepo.resources;
+
+    res.writeHead( 200, { 'Content-Type': 'json' } );
+    res.write( JSON.stringify( resources ) );
+    res.end();
   }
 
   static routes(){
@@ -70,13 +72,10 @@ const PATHS = {
       Server.analyze(JSON.parse(data), res);
       body = '';
     });
+  },
+  '/buildSource': function(req, res) {
+    Server.buildResources( res );
   }
-  // '/update_src_resources': function( req, res ) {
-  //     RequestHelper.getData(req, function(data) {
-  //         Server.update_src_resources( JSON.parse( data ), res );
-  //         body = '';
-  //     }
-  // }
 }
 
 

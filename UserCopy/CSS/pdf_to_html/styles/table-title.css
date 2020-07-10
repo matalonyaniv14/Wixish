@@ -18,7 +18,8 @@
 	 border: 5px solid rgb(80, 80, 80);
 	 padding: 54px;
 	 height: auto;
-	 background: rgb(227, 35, 40);
+	 background: rgb(200, 208, 204);
+	 color: red;
 	 
 }.title-right {
 
@@ -26,12 +27,12 @@
 	 border: 5px solid rgb(80, 80, 80);
 	 padding: 40px;
 	 color: rgb(87, 151, 204);
-	 background: rgb(227, 35, 40);
+	 background: rgb(200, 208, 204);
 	 
 }.title-right p {
 
 	 font-size: var(--small-title);
-	 color: aliceblue;
+	 color: rgb(227, 35, 40);
 	 
 }
 

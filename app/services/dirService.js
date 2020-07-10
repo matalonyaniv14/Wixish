@@ -1,5 +1,5 @@
 const { resolve, extname, dirname } = require('path');
-const { readdirSync, writeFile } = require('fs');
+const { readdirSync } = require('fs');
 const { copy } = require('fs-extra');
 
 class DirService {

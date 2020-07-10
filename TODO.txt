@@ -1,0 +1,16 @@
+extenstion resource does not build its own resources, now makes reuqest to server and receives buil base resources,
+client css resources are given the id of the base resource.
+
+
+
+EXTENSTION SIDE:
+
+resoource change occurs but does not udate the nex cssText leading to firsst change being alied, and after second request changes back to original style. ( may be because of the cssRules not being updated to rflect the new changes )
+( UPDATEALL )  ==>  ( ITERANDUPDATE )  ==> IMPROPER UPDATE OF CSSRULE CLIENT SIDE.
+
+
+
+1. must check if id remains and is correctly updated after reload. 
+2. check solution for dynamic css rules ( padding: 0px; padding-left 0px ====> will be in css rules padding: 0px )
+2a. this leads to regex not being built properly and though the CSSSTRATEGY correctly finds the change the REGEXHELPER is not
+able to find the relevant css block in the file due to the difference in cssText.

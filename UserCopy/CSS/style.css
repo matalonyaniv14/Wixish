@@ -1,0 +1,266 @@
+body {
+	background : url(./yumming.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.title{
+  	font-size: 3vw;
+  	font-family: "Georgia";
+  	color: rgb(255, 255, 255);
+}
+.text{
+	padding-top: 4%;
+	color: #fff;
+	width: 80%;
+	font-size: 1.4vw;
+}
+.left{
+	width: 42%;
+	float: left;
+	padding-left: 5%;
+	z-index: 22;
+}
+.btn {
+  	display: inline-block;
+  	padding: 15px 25px;
+  	font-size: 24px;
+  	cursor: pointer;
+  	text-align: center;
+  	text-decoration: none;
+  	outline: none;
+  	color: #fff;
+  	background-color: rgb(118, 195, 143);
+  	border: none;
+  	border-radius: 15px;
+  	font-size: 13px;
+  	font-family: "Georgia";
+  	color: rgb(255, 255, 255);
+  	line-height: 1.2;
+  	text-align: left;
+}.rapping {
+
+	 padding-top: 10%;
+	 width: 72%;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 
+}
+
+.right{
+	z-index: 22;
+	height: 90%;
+    width: 57%;
+    float: right;
+    padding-right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+}
+.image-cropper {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 7px 4px #383838;
+    -moz-box-shadow: 0 7px 4px #383838;
+    box-shadow: 0 7px 4px #383838;
+}
+.profile-pic {
+    display: inline;
+    margin: 0 auto;
+    margin-left: 0%;
+    height: 160%;
+    width: auto;
+    margin-top: -45%;
+}
+.overlay{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #454545;
+	opacity: 0.7;
+}
+.dot{
+	position: absolute;
+  height: 380px;
+  width: 380px;
+  background-color:	#505050;
+  border-radius: 50%;
+  display: inline-block;
+}.right svg {
+
+	 position: absolute;
+	 transform: scale(0.17);
+	 padding-left: 263%;
+	 opacity: 0.5;
+	 background: green;
+	 
+}.left svg {
+
+	 position: absolute;
+	 margin-top: -107.5%;
+	 margin-left: -100%;
+	 transform: scale(0.025);
+	 opacity: 0.75;
+	 color: black;
+	 
+}
+
+.wrapping {
+	padding-left: 15%;
+}
+.class1{
+	display: flex;
+	align-items: center;
+	margin-top: 5%;
+	width: 100%;
+	height: 70vh;
+}
+.class2{
+	align-items: center;
+	margin-top: -1%;
+	width: 100%;
+	height: 80vh;
+}
+
+svg g{
+	display: block;
+}
+svg g:hover{
+	color: #76C38F;
+	border-color: #76C38F;
+	fill:  #76C38F;
+	cursor: pointer;
+}
+.containos {
+  display: flex;
+  flex-flow: wrap;
+  flex-flow: row;
+  width: 100%;
+  margin: 0 auto;
+}
+.grid-row {
+  margin-top: 7%;
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: flex-start; */
+    justify-content: center;
+    width: 100%;
+}
+.grid-item {
+  z-index: 5;
+  opacity: 1;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 1%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 320px;
+  flex-basis: 20%;
+  -ms-flex: auto;
+  width: 259px;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.grid-item:after{
+  position: absolute;
+  z-index: 1;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  opacity: 0.8;
+}
+
+.grid-item:hover{
+transform: scale(1.07);
+}
+
+ .grid-item:hover.grid-item:after {
+   opacity: 1;
+}
+
+@media(min-width: 1333px){
+  .grid-item{
+    min-height: 400px;
+  }
+}
+@media(max-width: 1333px) {
+  .grid-item {
+    flex-basis: 33.33%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+  }
+}
+@media(max-width: 1073px) {
+   .grid-item {
+    flex-basis: 33.33%;
+  }
+}
+@media(max-width: 815px) {
+  .grid-item {
+    flex-basis: 70%;
+  }
+}
+@media(max-width: 555px) {
+  .grid-item {
+    flex-basis: 100%;
+  }
+}.carre {
+
+	 width: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 
+}
+
+.carre img{
+width: 10vw;
+}
+@media(max-width: 1073px) {
+  .carre img{
+  width: 15vw;
+  }
+}
+@media(max-width: 815px) {
+  .carre img{
+  width: 21vw;
+  }
+}
+.multitle{
+  z-index: 9;
+  font-size: 2.5vw;
+  font-family: "Georgia";
+}
+@media(max-width: 1073px) {
+  .multitle img{
+   font-size: 3.5vw;
+  }
+}
+@media(max-width: 815px) {
+  .multitle img{
+   font-size: 4.5vw;
+  }
+}
+@media(max-width: 555px) {
+  .multitle {
+    font-size: 5.5vw;
+  }
+}
+
+.content, .content p{
+  z-index: 9;
+  font-family: "Georgia";
+}

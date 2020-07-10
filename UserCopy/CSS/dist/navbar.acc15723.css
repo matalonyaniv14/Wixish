@@ -1,0 +1,45 @@
+.logo {
+font-size: 28px;
+font-family: "Georgia";
+color: #fff;
+line-height: 1; 
+float: left;
+top: 71.3px;
+z-index: 171;
+}
+.links {
+	padding-right: 5%;
+}
+
+.links li {
+  float: right;
+  padding-right: 2%;
+}
+
+.links a {
+	color: #FFF;
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 10px;	
+}
+.links a:hover{
+background-color: #76C38F;
+}
+
+.sec1 {
+	display: block;
+}
+.wrapper{
+	padding: 15px 0 0 30px;
+}
+.navbar {
+	background:transparent;
+	position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+
+/*# sourceMappingURL=/navbar.acc15723.css.map */

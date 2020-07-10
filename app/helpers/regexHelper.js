@@ -2,6 +2,10 @@ const COMMENT_BOUNDARY = String.raw`\s*(\s*\/\*[\s\w]*\*\/\s*)*\s*`;
 const SPECIAL_CHARS_ANCHOR = /[\.\#\(\)\s+:]/gi;
 const CSS_TEXT_ANCHOR =  /[{}:;]/gi;
 
+const removeDuplicates = ( css ) => {
+  return css.replace( /(\\s\*)+/g, String.raw`\s*` );
+}
+
 const makeLiteral = ( match ) => {
   // return `\\${ match }`;
   return "\\s*" + `\\${ match }` + "\\s*"
@@ -68,7 +72,9 @@ const buildRegex = ( css ) => {
   css = makeSpecialCharsLiteral( css );
   // css = buildSelector( css );
   css = buildCSSText( css );
+  css = removeDuplicates( css );
   css = build( css );
+
 
   return css;
 }

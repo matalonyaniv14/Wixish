@@ -20,6 +20,7 @@ class BaseRepo {
     static buildResources( resources ) {
       let _this      = this;
       let _resources = [];
+      console.log(resources);
       resources.forEach( function( resource ){ 
           _this._buildResource( resource, _resources );
       }) 

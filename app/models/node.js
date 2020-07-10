@@ -14,6 +14,9 @@ class Node {
   }
 
   set data(newData) {
+    if (  !(newData.match( /\.css$/ )) ) {
+        newData = newData + '.css';
+    }
     this._data = newData;
   }
 

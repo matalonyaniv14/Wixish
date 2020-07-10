@@ -1,0 +1,15 @@
+.testingClass1 {
+
+	 width: 100vw;
+	 background: rgb(239, 224, 225);
+	 height: 100px;
+	 box-shadow: 1px 1px 6px 1px;
+	 
+}.testingClass2 {
+
+	 height: 100px;
+	 background: rgb(239, 243, 232);
+	 box-shadow: 1px 1px 6px 3px;
+	 
+}
+

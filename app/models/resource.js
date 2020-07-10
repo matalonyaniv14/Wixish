@@ -49,10 +49,6 @@ class Resource {
   update( resource = {} ) {
     let _this = this;
     try {
-      if ( resource == {} ) {
-          console.log( "NEW RESOURCE IS EMPTY....", resource );
-          return false;
-      }
       Object.keys( resource ).forEach( function( key ) {
             if ( key == 'id' ) {
                 _this.id = _this._uniqID();
@@ -101,7 +97,7 @@ class Resource {
 
 
   _uniqID(id) { 
-    return id ?? this.selector + this.cssText; 
+    return id ?? this.selector + this.cssText + this.href; 
   }
 
   toRegex() {

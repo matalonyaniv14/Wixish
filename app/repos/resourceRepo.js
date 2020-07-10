@@ -54,10 +54,12 @@ class ResourceRepo extends BaseRepo {
   resetResources( o, n ) {   
       let resource = n.findSelf( this.resources );
       resource.update( { cssText: n.cssText } );
+      this.resetResourceID( resource );
   }
 
-  resetResourceID( resource, newResource ) {
-      resource.update( { id: newResource.id } );
+  resetResourceID( resource ) {
+      resource.update( { id: undefined } );
+
   }
 
 
@@ -91,7 +93,6 @@ class ResourceRepo extends BaseRepo {
       try {
 
           href = href.replace( FILE_REG, '/' );
-          console.log( 'INSIDE DECODE RESOURCE..... ==> ' + href );
           return decodeURI( href );
 
        } catch( e ) {

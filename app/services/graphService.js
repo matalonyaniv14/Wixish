@@ -17,6 +17,11 @@ class GraphService {
   perform() {
     let rootStack      = new Stack();
     let childrenStack  = new Stack();
+    let _links = Object.assign( [], this.nodeGraph.links );
+    if ( this.nodeGraph.checkCircularReference( _links ).res === true ) {
+        throw "You have ( 2 ) or more CSS files linking to one another";
+    }
+
     let rootNode       = this.nodeGraph.findRootNode( rootStack );
     this.nodeGraph.findChildren( rootNode, childrenStack );
     

@@ -39,8 +39,9 @@ class NodeGraph {
   buildNodes() {
     let _this = this;
       this.paths.forEach( function( path ){ 
-          _this.addNode( new Node( path ) );
+          _this.addNode( new Node( path ) ); 
       })
+
       this.buildLinks();
   }
 
@@ -52,12 +53,10 @@ class NodeGraph {
 
           res = _this.findNodeFile( node.data );
           res.forEach(function( r ){ 
-            // CHECK IF FILE ENDS WITH CSS MUST BE ADDED
-             // console.log( 'THIS IS R => ', r );
+
               _required = r + '_id';
               let _node = _this.findNode( _required );
   
-
               if ( _node.length > 0 ) {
 
                   let link  = new Link( node, _node[0] );
@@ -72,22 +71,23 @@ class NodeGraph {
   findNodeFile( data ) {
       let contents, res, _this;
       _this = this;
-      res = [];
+      res   = [];
 
       try {
-        // // console.log( 'READING FILE => ' + data  );
+          
           contents = readFileSync( data, 'utf-8' ).split( "\n" );
           contents.forEach( function( c ) { 
               let m =  c.match( REQ_REG ); 
               if ( m ) { 
+                  console.log( 'MATCH FOUND ===>  ' + m );
                   res.push( _this.resolveFile( m, data ) ); 
-                  // // console.log('IN RES', res);
               } 
           });
           
           return res;
 
       } catch( e ) {
+          console.log( 'THERE WAS AN ERROR... ===>  ' + e );
           return [];
       }
   }
@@ -99,7 +99,11 @@ class NodeGraph {
       splitPath.pop();
       let pathDir   = splitPath.join('/');
       pathDir       = resolve( pathDir, match.groups.path );
-      // // console.log('IN RESOLVE FILE...', pathDir);
+
+      if (  !(pathDir.match( /\.css$/ )) ) {
+          pathDir = pathDir + '.css';
+      }
+
       return pathDir;
   }
 
@@ -127,6 +131,7 @@ class NodeGraph {
   _findRootNode(node, stack) {
     let _this = this;
       let _links = this.findLinkToNode( node );
+      console.log('LINK LENGTH ====>  ', _links.length );
       if ( _links.length === 0 ) {
           stack.add(node);
           return;
@@ -149,6 +154,33 @@ class NodeGraph {
       return this.findNode(r.node)[0];
   }
 
+
+  checkCircularReference(links) {
+    let _this, _links, isCircular;
+    _this = this;
+    isCircular = { res: false, links: [] };
+
+    links.forEach( function( link ) {
+        links.shift();
+        links.forEach( function( _link ) {
+          if ( _this.isCircular( link, _link ) ) {
+              isCircular.res   = true;
+              isCircular.links.push( [ link, _link ] )
+          }
+        })
+    })
+
+    return isCircular;
+  }
+
+
+  isCircular( link, _link ) {
+    if ( link.to.id == _link.from.id  && link.from.id == _link.to.id ) {
+        return true;
+    }
+
+    return false;
+  }
 
   findNode(id) {
     return this.nodes

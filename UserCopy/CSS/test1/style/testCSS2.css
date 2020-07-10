@@ -1,0 +1,20 @@
+.testingClass1 {
+
+	 color: green;
+	 width: 100vw;
+	 height: 200px;
+	 border-radius: 90px;
+	 text-align: center;
+	 background: rgb(3, 169, 244);
+	 font-size: 98px;
+	 
+}
+
+.testingClass2 {
+
+	 font-size: 33px;
+	 width: 100px;
+	 box-shadow: rgb(103, 58, 183) 6px 5px 9px 1px;
+	 
+}
+

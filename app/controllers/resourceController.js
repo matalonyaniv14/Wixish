@@ -16,7 +16,7 @@ class ResourceController {
       resources     = this.resourceRepo.resources;
       _newResources = ResourceRepo.buildResources( _newResources.data );
       res           = this.strategy.doAnalyze( resources, _newResources );
-      console.log( res );
+      
       this.resourceRepo.updateResources( res );
       // this.resourceRepo.resetResources( _newResources );    
     

@@ -24,6 +24,7 @@ ipcMain.on('DirService', function(event, arg){
 
 
 ipcMain.on('resources', function(e, arg) {
+  console.log( 'IN RESOUORCES.... ' );
   resources = ResourceRepo.buildResources(arg.data);
   // console.log('RESOURSES....', resources);
   let repo      = new ResourceRepo(resources);
@@ -42,6 +43,7 @@ function initWindow(e) {
       sourceBuilder.rootDir = data.filePaths[0];
       // sourceBuilder.rootDir = '/Users/yanivmatalon/Desktop/TOADS/comminity 2/';
       sourceBuilder.build();
+      console.log( sourceBuilder.graphService );
       createWindow();
     })
 
